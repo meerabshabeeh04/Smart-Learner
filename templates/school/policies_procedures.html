@@ -1,0 +1,334 @@
+{% extends 'base.html' %}
+
+{% block title %}Policies & Procedures - Smart Learner{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="hero-title">Policies & Procedures</h1>
+                <p class="hero-subtitle">Clear Guidelines for a Better Learning Experience</p>
+                <p class="lead">Transparent policies and procedures to ensure a smooth and effective learning journey for your child.</p>
+            </div>
+            <div class="col-lg-4">
+                <div class="text-center">
+                    <i class="fas fa-clipboard-list" style="font-size: 6rem; color: var(--gold-primary); opacity: 0.8;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Enrollment Policy -->
+{% if policies_content %}
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-user-plus me-2"></i>Enrollment Policy
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ policies_content.enrollment_policy|linebreaks }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% else %}
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-user-plus me-2"></i>Enrollment Policy
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-check-circle text-success me-2"></i>Classes 1-8</h6>
+                            <p>Open year-round enrollment available for all elementary classes</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-check-circle text-success me-2"></i>Classes 9-10</h6>
+                            <p>SSC board registration guided during official enrollment windows</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Attendance Policy -->
+{% if policies_content %}
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-calendar-check me-2"></i>Attendance Policy
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ policies_content.attendance_policy|linebreaks }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% else %}
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-calendar-check me-2"></i>Attendance Policy
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-percentage text-primary me-2"></i>Minimum Requirement</h6>
+                            <p>Minimum 75% attendance required for promotion to next grade</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-laptop text-primary me-2"></i>Digital Tracking</h6>
+                            <p>Fully digital attendance tracking via our Learning Management System</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Assessments Policy -->
+{% if policies_content %}
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-clipboard-check me-2"></i>Assessments Policy
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ policies_content.assessments_policy|linebreaks }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% else %}
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-clipboard-check me-2"></i>Assessments Policy
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h6><i class="fas fa-calendar-alt text-primary me-2"></i>Monthly Tests</h6>
+                            <p>Regular monthly assessments to track progress</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h6><i class="fas fa-file-alt text-primary me-2"></i>Term Exams</h6>
+                            <p>Comprehensive term examinations</p>
+                        </div>
+                        <div class="col-md-4">
+                            <h6><i class="fas fa-project-diagram text-primary me-2"></i>Project-Based</h6>
+                            <p>Project-based evaluations and presentations</p>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle me-2"></i>
+                            <strong>Parent Access:</strong> Grades & reports shared with parents through dedicated dashboards
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Code of Conduct -->
+{% if policies_content %}
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-handshake me-2"></i>Code of Conduct
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ policies_content.code_of_conduct|linebreaks }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% else %}
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-handshake me-2"></i>Code of Conduct
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-heart text-danger me-2"></i>Learning Environment</h6>
+                            <p>We maintain a respectful, inclusive, and engaging learning environment for all students.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-shield-alt text-warning me-2"></i>Academic Integrity</h6>
+                            <p>Strict policies against plagiarism and disruptive behavior to ensure fair learning.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Cost-Saving Benefits -->
+{% if policies_content %}
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-piggy-bank me-2"></i>Cost-Saving Benefits
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ policies_content.cost_saving_benefits|linebreaks }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% else %}
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-piggy-bank me-2"></i>Cost-Saving Benefits
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-car text-success me-2"></i>
+                                <span>No transportation or fuel costs</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-tshirt text-success me-2"></i>
+                                <span>No uniform expenses</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-book text-success me-2"></i>
+                                <span>No textbook expenses</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-dollar-sign text-success me-2"></i>
+                                <span>Affordable all-inclusive monthly fee</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="alert alert-success">
+                            <i class="fas fa-calculator me-2"></i>
+                            <strong>Average Savings:</strong> 50-60% compared to private traditional schools
+                        </div>
+                        <div class="alert alert-info">
+                            <i class="fas fa-id-card me-2"></i>
+                            <strong>One-time admission fee</strong> includes lifetime student ID
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Additional Benefits -->
+<section class="container my-5">
+    <h2 class="section-title">Additional Benefits</h2>
+    <div class="row">
+        <div class="col-md-3 mb-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-clock feature-icon" style="color: var(--gold-primary);"></i>
+                    <h5 class="card-title">Flexible Schedule</h5>
+                    <p class="card-text">Learn at your own pace with family-friendly timings</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-home feature-icon" style="color: var(--gold-primary);"></i>
+                    <h5 class="card-title">Learn from Home</h5>
+                    <p class="card-text">Safe, comfortable learning environment</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-users feature-icon" style="color: var(--gold-primary);"></i>
+                    <h5 class="card-title">Parent Dashboard</h5>
+                    <p class="card-text">Real-time progress tracking and updates</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-certificate feature-icon" style="color: var(--gold-primary);"></i>
+                    <h5 class="card-title">Accredited</h5>
+                    <p class="card-text">Karachi Board of Education recognized</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact for More Information -->
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card text-center" style="background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); color: white;">
+                <div class="card-body">
+                    <h2 class="card-title">Have Questions About Our Policies?</h2>
+                    <p class="card-text">We're here to help you understand all aspects of our programs and policies.</p>
+                    <div class="mt-4">
+                        <a href="{% url 'contactus' %}" class="btn btn-light btn-lg me-3">
+                            <i class="fas fa-phone me-2"></i>Contact Us
+                        </a>
+                        <a href="{% url 'enrollnow' %}" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-graduation-cap me-2"></i>Enroll Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,234 @@
+{% extends 'base.html' %}
+
+{% block title %}Skill-Based Extracurricular Programs - Smart Learner{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="hero-title">Skill-Based Extracurricular Programs</h1>
+                <p class="hero-subtitle">Equip Your Child with Future-Ready Skills</p>
+                <p class="lead">Partnering with Edukators Middle East, we bring modern, skill-based extracurriculars into your child's routine - all delivered online.</p>
+            </div>
+            <div class="col-lg-4">
+                <div class="text-center">
+                    <i class="fas fa-code" style="font-size: 6rem; color: var(--gold-primary); opacity: 0.8;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Programs Included -->
+{% if programs_content %}
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-list me-2"></i>Programs Included
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ programs_content.programs_included|linebreaks }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Our Programs -->
+<section class="container my-5">
+    <h2 class="section-title">Our Programs Include</h2>
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-start">
+                        <i class="fas fa-laptop-code feature-icon me-3" style="font-size: 2rem; color: var(--gold-primary);"></i>
+                        <div>
+                            <h5 class="card-title">Coding</h5>
+                            <p class="card-text">Learn programming languages including Scratch, Python, HTML/CSS to build websites and applications.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-start">
+                        <i class="fas fa-robot feature-icon me-3" style="font-size: 2rem; color: var(--gold-primary);"></i>
+                        <div>
+                            <h5 class="card-title">Robotics & AI</h5>
+                            <p class="card-text">Explore, build, and code smart systems. Learn the fundamentals of artificial intelligence and robotics.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-start">
+                        <i class="fas fa-gamepad feature-icon me-3" style="font-size: 2rem; color: var(--gold-primary);"></i>
+                        <div>
+                            <h5 class="card-title">Game Development</h5>
+                            <p class="card-text">Design games from concept to creation. Learn game mechanics, storytelling, and interactive design.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-start">
+                        <i class="fas fa-palette feature-icon me-3" style="font-size: 2rem; color: var(--gold-primary);"></i>
+                        <div>
+                            <h5 class="card-title">Graphic Design & Animation</h5>
+                            <p class="card-text">Learn digital storytelling and creative expression through graphic design and animation techniques.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Program Highlights -->
+{% if programs_content %}
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-star me-2"></i>Program Highlights
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ programs_content.program_highlights|linebreaks }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Features -->
+<section class="container my-5">
+    <h2 class="section-title">Program Features</h2>
+    <div class="row">
+        <div class="col-md-3 mb-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-users feature-icon" style="color: var(--gold-primary);"></i>
+                    <h5 class="card-title">Age Groups</h5>
+                    <p class="card-text">Designed for students in Classes 2 to 10</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-project-diagram feature-icon" style="color: var(--gold-primary);"></i>
+                    <h5 class="card-title">Real Projects</h5>
+                    <p class="card-text">Real-world projects and virtual hackathons</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-trophy feature-icon" style="color: var(--gold-primary);"></i>
+                    <h5 class="card-title">Showcases</h5>
+                    <p class="card-text">Regular skill showcases and competitions</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-user-tie feature-icon" style="color: var(--gold-primary);"></i>
+                    <h5 class="card-title">Expert Mentors</h5>
+                    <p class="card-text">Industry experts and certified trainers</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Partnership -->
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card" style="background: linear-gradient(135deg, var(--light-blue), white);">
+                <div class="card-body text-center">
+                    <i class="fas fa-handshake feature-icon" style="color: #10b981;"></i>
+                    <h3 class="card-title">Partnership with Edukators Middle East</h3>
+                    <p class="card-text">Our programs are delivered in partnership with Edukators Middle East, accredited from UK, ensuring internationally recognized standards.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Career Pathways -->
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-road me-2"></i>Career Pathways
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Our programs create pathways to future careers in tech, design, and innovation. Students gain practical skills that are highly valued in the modern job market.</p>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-arrow-right text-primary me-2"></i>Technology Careers</h6>
+                            <ul>
+                                <li>Software Developer</li>
+                                <li>Web Developer</li>
+                                <li>AI/ML Engineer</li>
+                                <li>Robotics Engineer</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6><i class="fas fa-arrow-right text-primary me-2"></i>Creative Careers</h6>
+                            <ul>
+                                <li>Game Designer</li>
+                                <li>Graphic Designer</li>
+                                <li>UI/UX Designer</li>
+                                <li>Digital Artist</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card text-center" style="background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); color: white;">
+                <div class="card-body">
+                    <h2 class="card-title">🎯 Limited Slots - Give Your Child a Creative Edge!</h2>
+                    <p class="card-text">Don't miss out on these future-ready skill programs. Enroll today and prepare your child for tomorrow's opportunities.</p>
+                    <div class="mt-4">
+                        <a href="{% url 'enrollnow' %}" class="btn btn-light btn-lg me-3">
+                            <i class="fas fa-graduation-cap me-2"></i>Enroll Now
+                        </a>
+                        <a href="{% url 'contactus' %}" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-info-circle me-2"></i>Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

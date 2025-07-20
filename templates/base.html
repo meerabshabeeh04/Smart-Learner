@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Smart Learner - Your Child's Gateway to a Smarter Future{% endblock %}</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    {% load static %}
+    <style>
+        :root {
+            --primary-blue: #4a5c7a;
+            --secondary-blue: #3d4f68;
+            --light-blue: #e8f2ff;
+            --dark-blue: #2c3e50;
+            --accent-blue: #5a73a0;
+            --gold-primary: #d4af37;
+            --gold-secondary: #b8941f;
+            --gold-light: #f4e19c;
+            --navy-dark: #364659;
+            --text-light: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8fafc;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #4a5c7a 0%, #364659 100%);
+            box-shadow: 0 4px 20px rgba(52, 70, 89, 0.3);
+            padding: 1rem 0;
+            backdrop-filter: blur(10px);
+            min-height: 80px;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white !important;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 0;
+            height: 60px;
+        }
+
+        .logo-container {
+            margin-right: 15px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+        }
+
+        /* Fallback icon if logo doesn't load */
+        .fallback-icon {
+            font-size: 2.2rem;
+            color: white;
+            opacity: 0.9;
+        }
+
+        .brand-text {
+            font-family: 'Segoe UI', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: white;
+        }
+
+        .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.95) !important;
+            margin: 0 0.2rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            padding: 0.7rem 1rem !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .navbar-nav .nav-link:hover {
+            background: rgba(212, 175, 55, 0.15);
+            transform: translateY(-2px);
+            color: white !important;
+        }
+
+        .navbar-nav .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .navbar-nav .nav-link:hover::before {
+            width: 80%;
+        }
+
+        .navbar-nav .nav-link i {
+            margin-right: 6px;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover i {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .dropdown-menu {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            padding: 0.8rem 0;
+            margin-top: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .dropdown-item {
+            color: var(--secondary-blue) !important;
+            padding: 0.8rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .dropdown-item i {
+            color: var(--gold-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background: linear-gradient(135deg, var(--gold-light), rgba(212, 175, 55, 0.2));
+            color: var(--navy-dark) !important;
+            transform: translateX(8px);
+        }
+
+        .dropdown-item:hover i {
+            color: var(--gold-primary);
+            transform: scale(1.2);
+        }
+
+        .dropdown-divider {
+            margin: 0.8rem 1.5rem;
+            border-color: var(--light-blue);
+            opacity: 0.6;
+        }
+
+        .search-btn {
+            border-radius: 50%;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .search-btn:hover {
+            background: white;
+            color: var(--primary-blue);
+            border-color: white;
+            transform: scale(1.1);
+        }
+
+        .login-btn {
+            background: linear-gradient(135deg, white, var(--text-light));
+            color: var(--primary-blue) !important;
+            border: 2px solid white;
+            border-radius: 25px;
+            padding: 0.6rem 1.8rem !important;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .login-btn:hover {
+            background: transparent;
+            color: white !important;
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--light-blue), white);
+            padding: 4rem 0;
+            margin-bottom: 3rem;
+        }
+
+        .hero-title {
+            color: var(--dark-blue);
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            color: var(--secondary-blue);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            border: none;
+            border-radius: 25px;
+            padding: 0.8rem 2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+            border-radius: 25px;
+            padding: 0.8rem 2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            color: white;
+            border-radius: 15px 15px 0 0 !important;
+            padding: 1.5rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            color: var(--dark-blue);
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            color: var(--secondary-blue);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, var(--dark-blue), var(--secondary-blue));
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer h5 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: white;
+        }
+
+        .stats-section {
+            background: var(--light-blue);
+            padding: 3rem 0;
+            margin: 3rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--secondary-blue);
+        }
+
+        .navbar-toggler {
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            padding: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-toggler:hover {
+            border-color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .navbar {
+                padding: 0.8rem 0;
+                min-height: 70px;
+            }
+            
+            .navbar-brand {
+                font-size: 1.5rem;
+                height: 50px;
+            }
+            
+            .logo-container {
+                height: 50px;
+            }
+            
+            .logo-img {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .navbar-nav {
+                text-align: center;
+                margin-top: 1rem;
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 15px;
+                padding: 1rem 0;
+                margin-top: 1rem;
+            }
+            
+            .login-btn {
+                margin-top: 1rem;
+            }
+
+            .nav-search {
+                display: none;
+            }
+
+            .dropdown-menu {
+                background: rgba(255,255,255,0.98);
+                backdrop-filter: blur(15px);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+            }
+
+            .navbar-nav .nav-link {
+                margin: 0.3rem 0;
+                border-radius: 12px;
+            }
+
+            .brand-text {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-brand {
+                font-size: 1.3rem;
+                height: 45px;
+            }
+            
+            .logo-container {
+                height: 45px;
+            }
+            
+            .logo-img {
+                width: 55px;
+                height: 55px;
+            }
+            
+            .brand-text {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <div class="logo-container">
+                    <img src="{% static 'school/img/logo-bg.png' %}" 
+                         alt="Smart Learner Logo" 
+                         class="logo-img"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <i class="fas fa-graduation-cap fallback-icon" style="display:none;"></i>
+                </div>
+                <span class="brand-text">Smart Learner</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">
+                            <i class="fas fa-home"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="programsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-book"></i>Programs
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'onlineschool' %}">
+                                <i class="fas fa-laptop me-2"></i>Online School
+                            </a></li>
+                            <li><a class="dropdown-item" href="{% url 'class9_10_ssc' %}">
+                                <i class="fas fa-certificate me-2"></i>Class 9-10 SSC
+                            </a></li>
+                            <li><a class="dropdown-item" href="{% url 'skillbasedECprograms' %}">
+                                <i class="fas fa-tools me-2"></i>Skill Programs
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{% url 'highereducation_studyabroad' %}">
+                                <i class="fas fa-globe me-2"></i>Study Abroad
+                            </a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'whychoosesl' %}">
+                            <i class="fas fa-star"></i>Why Choose Us
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'policiesprocedures' %}">
+                            <i class="fas fa-file-contract"></i>Policies
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contactus' %}">
+                            <i class="fas fa-phone"></i>Contact Us
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center">
+                    <!-- <div class="nav-search me-3">
+                        <button class="btn btn-outline-light btn-sm search-btn" type="button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div> -->
+                    <a href="https://lms.smartlearner.me/" class="nav-link login-btn">
+                        <i class="fas fa-sign-in-alt me-1"></i>Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div style="margin-right: 12px;">
+                            <img src="{% static 'school/img/logo-bg.png' %}" 
+                                 alt="Smart Learner Logo" 
+                                 style="width: 40px; height: 40px; object-fit: contain;"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <i class="fas fa-graduation-cap" style="display:none; color: white; font-size: 1.5rem;"></i>
+                        </div>
+                        <h5 style="margin: 0; color: white;">Smart Learner</h5>
+                    </div>
+                    <p>Your child's gateway to a smarter future through innovative online education.</p>
+                    <div class="social-links">
+                        <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-md-2 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'onlineschool' %}">Online School</a></li>
+                        <li><a href="{% url 'skillbasedECprograms' %}">Skill Programs</a></li>
+                        <li><a href="{% url 'contactus' %}">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <h5>Programs</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'class9_10_ssc' %}">Class 9-10 SSC</a></li>
+                        <li><a href="{% url 'highereducation_studyabroad' %}">Study Abroad</a></li>
+                        <li><a href="{% url 'whychoosesl' %}">Why Choose Us</a></li>
+                        <li><a href="{% url 'policiesprocedures' %}">Policies</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <h5>Contact Info</h5>
+                    <p><i class="fas fa-envelope me-2"></i>hello@smartlearner.me</p>
+                    <p><i class="fas fa-phone me-2"></i>+92-XXX-XXXXXXX</p>
+                    <p><i class="fas fa-globe me-2"></i>www.smartlearner.me</p>
+                    <p><i class="fas fa-map-marker-alt me-2"></i>Pakistan | UAE | Saudi Arabia</p>
+                </div>
+            </div>
+            
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2025 Smart Learner. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>Accredited by Karachi Board of Education</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

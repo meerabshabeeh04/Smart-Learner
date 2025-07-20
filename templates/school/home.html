@@ -1,0 +1,246 @@
+{% extends 'base.html' %}
+
+{% block title %}Smart Learner - Your Child's Gateway to a Smarter Future{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="hero-title">Smart Learner</h1>
+                <p class="hero-subtitle">Your Child's Gateway to a Smarter Future</p>
+                <div class="mb-4">
+                    <a href="{% url 'enrollnow' %}" class="btn btn-primary btn-lg me-3">
+                        <i class="fas fa-graduation-cap me-2"></i>Enroll Now
+                    </a>
+                    <a href="{% url 'contactus' %}" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-phone me-2"></i>Contact Us
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="text-center">
+                    <i class="fas fa-laptop-code" style="font-size: 8rem; color: var(--gold-secondary); opacity: 0.8;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-6">
+                <div class="stat-item">
+                    <div class="stat-number">1-10</div>
+                    <div class="stat-label">Classes Accredited</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-item">
+                    <div class="stat-number">60%</div>
+                    <div class="stat-label">Cost Savings</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Online Learning</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="stat-item">
+                    <div class="stat-number">6+</div>
+                    <div class="stat-label">Countries Served</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Smart Learner Introduction -->
+{% if home_content %}
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card" style="background: linear-gradient(135deg, #f8fafc, var(--light-blue));">
+                <div class="card-header text-center" style="background: var(--primary-blue); color: white;">
+                    <i class="fas fa-graduation-cap me-2"></i>
+                    <h3 class="mb-0">Smart Learner: Your Child's Gateway to a Smarter Future</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <p class="card-text lead">{{ home_content.smart_learner|linebreaks }}</p>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <i class="fas fa-lightbulb" style="font-size: 4rem; color: var(--gold-primary); opacity: 0.7;"></i>
+                            <div class="mt-3">
+                                <span class="badge bg-primary fs-6">Accredited</span>
+                                <span class="badge bg-success fs-6 ms-2">Flexible</span>
+                                <span class="badge bg-info fs-6 ms-2">Affordable</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Message from Founder -->
+{% if home_content %}
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-quote-left me-2"></i>Message from the Founder
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ home_content.message_from_founder|linebreaks }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Our Mission & Vision -->
+{% if home_content %}
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header">
+                    <i class="fas fa-bullseye me-2"></i>Our Mission
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ home_content.our_mission|linebreaks }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header">
+                    <i class="fas fa-eye me-2"></i>Our Vision
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ home_content.our_vision|linebreaks }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Why Smart Learner -->
+{% if home_content %}
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-star me-2"></i>Why Smart Learner?
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="card-text">{{ home_content.why_smart_learner|linebreaks }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-center">
+                                <i class="fas fa-award feature-icon" style="color: var(--gold-primary); opacity: 0.7;"></i>
+                                <h5>Accredited Education</h5>
+                                <p>Recognized by Karachi Board of Education</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Features Section -->
+<section class="container my-5">
+    <h2 class="section-title">What We Offer</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-school feature-icon" style="color: var(--gold-primary);"></i>
+                    <h5 class="card-title">Online School</h5>
+                    <p class="card-text">Complete online schooling for Classes 1-8, accredited by Karachi Board of Education.</p>
+                    <a href="{% url 'onlineschool' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-code feature-icon" style="color: var(--gold-primary);"></i>
+                    <h5 class="card-title">Skill Programs</h5>
+                    <p class="card-text">Coding, Robotics, Game Development, and Design programs for future-ready skills.</p>
+                    <a href="{% url 'skillbasedECprograms' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-globe feature-icon" style="color: var(--gold-primary);"></i>
+                    <h5 class="card-title">Study Abroad</h5>
+                    <p class="card-text">Guidance and support for international higher education opportunities.</p>
+                    <a href="{% url 'highereducation_studyabroad' %}" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Free Education Section -->
+{% if home_content %}
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card" style="background: linear-gradient(135deg, var(--light-blue), white);">
+                <div class="card-body text-center">
+                    <i class="fas fa-heart feature-icon" style="color: #ef4444;"></i>
+                    <h3 class="card-title">{{ home_content.free_education|linebreaks }}</h3>
+                    <a href="{% url 'free_education' %}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-hand-holding-heart me-2"></i>Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Call to Action -->
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card text-center" style="background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); color: white;">
+                <div class="card-body">
+                    <h2 class="card-title">Ready to Start Your Child's Smart Learning Journey?</h2>
+                    <p class="card-text">Join thousands of families who have chosen Smart Learner for their children's education.</p>
+                    <div class="mt-4">
+                        <a href="{% url 'enrollnow' %}" class="btn btn-light btn-lg me-3">
+                            <i class="fas fa-graduation-cap me-2"></i>Enroll Now
+                        </a>
+                        <a href="{% url 'contactus' %}" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-calendar me-2"></i>Book Free Consultation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

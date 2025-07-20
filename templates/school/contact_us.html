@@ -1,0 +1,211 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us - Smart Learner{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="hero-title">Contact Us</h1>
+                <p class="hero-subtitle">Let's Start the Journey Together</p>
+                <p class="lead">We'd love to help you find the right academic path for your child. Get in touch with us today!</p>
+            </div>
+            <div class="col-lg-4">
+                <div class="text-center">
+                    <i class="fas fa-phone-alt" style="font-size: 6rem; color: var(--gold-primary); opacity: 0.8;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            {% if success %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <i class="fas fa-check-circle me-2"></i>
+                <strong>Thank you!</strong> Your message has been sent successfully. We'll get back to you within 24 hours.
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+            {% endif %}
+            
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-envelope me-2"></i>Send us a Message
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="parent_name" class="form-label">Parent Name *</label>
+                                <input type="text" class="form-control" id="parent_name" name="parent_name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="student_first_name" class="form-label">Student First Name *</label>
+                                <input type="text" class="form-control" id="student_first_name" name="student_first_name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="student_last_name" class="form-label">Student Last Name *</label>
+                                <input type="text" class="form-control" id="student_last_name" name="student_last_name" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="phone" class="form-label">Phone Number *</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="country" class="form-label">Country *</label>
+                                <select class="form-select" id="country" name="country" required>
+                                    <option value="">Select Country</option>
+                                    <option value="Pakistan">Pakistan</option>
+                                    <option value="UAE">UAE</option>
+                                    <option value="Saudi Arabia">Saudi Arabia</option>
+                                    <option value="Kuwait">Kuwait</option>
+                                    <option value="Qatar">Qatar</option>
+                                    <option value="Bahrain">Bahrain</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-paper-plane me-2"></i>Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Information -->
+<section class="container my-5">
+    <h2 class="section-title">Get in Touch</h2>
+    <div class="row">
+        <div class="col-md-3 mb-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-envelope feature-icon" style="color: var(--gold-primary);"></i>
+                    <h5 class="card-title">Email</h5>
+                    <p class="card-text">hello@smartlearner.me</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <i class="fab fa-whatsapp feature-icon" style="color: var(--gold-primary);"></i>
+                    <h5 class="card-title">WhatsApp</h5>
+                    <p class="card-text">+92-XXX-XXXXXXX</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-globe feature-icon" style="color: var(--gold-primary);"></i>
+                    <h5 class="card-title">Website</h5>
+                    <p class="card-text">www.smartlearner.me</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-calendar-alt feature-icon" style="color: var(--gold-primary);"></i>
+                    <h5 class="card-title">Free Consultation</h5>
+                    <p class="card-text">Book a call with us</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Serving Areas -->
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-map-marker-alt me-2"></i>Serving Families In
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-md-2 col-4 mb-3">
+                            <div class="p-3">
+                                <i class="fas fa-flag" style="color: var(--gold-primary); font-size: 2rem;"></i>
+                                <h6 class="mt-2">Pakistan</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-4 mb-3">
+                            <div class="p-3">
+                                <i class="fas fa-flag" style="color: var(--gold-primary); font-size: 2rem;"></i>
+                                <h6 class="mt-2">UAE</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-4 mb-3">
+                            <div class="p-3">
+                                <i class="fas fa-flag" style="color: var(--gold-primary); font-size: 2rem;"></i>
+                                <h6 class="mt-2">Saudi Arabia</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-4 mb-3">
+                            <div class="p-3">
+                                <i class="fas fa-flag" style="color: var(--gold-primary); font-size: 2rem;"></i>
+                                <h6 class="mt-2">Kuwait</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-4 mb-3">
+                            <div class="p-3">
+                                <i class="fas fa-flag" style="color: var(--gold-primary); font-size: 2rem;"></i>
+                                <h6 class="mt-2">Qatar</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-4 mb-3">
+                            <div class="p-3">
+                                <i class="fas fa-flag" style="color: var(--gold-primary); font-size: 2rem;"></i>
+                                <h6 class="mt-2">Bahrain</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="container my-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card text-center" style="background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue)); color: white;">
+                <div class="card-body">
+                    <h2 class="card-title">Ready to Get Started?</h2>
+                    <p class="card-text">Book a free consultation call to explore the smartest way to support your child's education.</p>
+                    <div class="mt-4">
+                        <a href="{% url 'enrollnow' %}" class="btn btn-light btn-lg me-3">
+                            <i class="fas fa-graduation-cap me-2"></i>Enroll Now
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-calendar me-2"></i>Book Free Consultation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
